@@ -1,0 +1,22 @@
+{
+  "name": "test-app-elysia-vite-ssr",
+  "version": "0.0.1",
+  "module": "ui/entry-server.tsx",
+  "dependencies": {
+    "elysia-connect": "latest",
+    "elysia-vite": "latest",
+    "lodash.omit": "*"
+  },
+  "devDependencies": {
+    "@types/lodash.omit": "^4.5.7",
+    "@vitejs/plugin-react": "^4.0.3",
+    "bun-types": "latest",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "peerDependencies": {
+    "@elysiajs/html": "*",
+    "vite": "^4.4.7",
+    "elysia": "^0.5.25"
+  }
+}
