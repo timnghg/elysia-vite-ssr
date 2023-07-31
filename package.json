@@ -17,7 +17,9 @@
   "devDependencies": {
     "@types/lodash.omit": "^4.5.7",
     "bun-types": "latest",
-    "elysia": "^0.5.25"
+    "elysia": "^0.5.25",
+    "vite": "^4.4.7",
+    "@elysiajs/html": "*"
   },
   "peerDependencies": {
     "@elysiajs/html": "*",
