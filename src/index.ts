@@ -9,16 +9,25 @@ import omit from "lodash.omit";
 export const elysiaViteSsr = (
     options?: ViteConfig & { entryServerFile?: string, onViteServerReady?(): Promise<void> | void }
 ) => {
-    const {entryServerFile = "entry-server.tsx"} = options || {};
+    const {entryServerFile = "entry-server.tsx", onViteServerReady, ...otherOptions} = options || {};
     return async (app: Elysia) => {
         const prefix = options?.base || "";
         const viteServerConfig = {
             server: {middlewareMode: true},
             appType: "custom",
-            ...omit(options, ["entryServerFile", "onViteServerReady"]),
+            ...otherOptions,
+            build: {
+                ssrEmitAssets: true,
+                ssr: true,
+                // improve build performance
+                minify: false,
+                modulePreload: {polyfill: false},
+                reportCompressedSize: false,
+                ...otherOptions?.build,
+            },
         } as UserConfig;
         const viteServer = await createViteServer(viteServerConfig);
-        
+
         if (options?.onViteServerReady) {
             await options?.onViteServerReady();
         }

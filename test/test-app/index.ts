@@ -9,3 +9,7 @@ const app = new Elysia()
         entryServerFile: "ui/entry-server.tsx",
     }))
     .listen(3100);
+
+console.log(
+    `🦊 Elysia Vite SSR - Test App is running at ${app.server?.hostname}:${app.server?.port}`
+);
